@@ -11,7 +11,11 @@ You can find great Tensorflow documentation below.
 
 [TF2 Object Detection API Tutorial](https://tensorflow-object-detection-api-tutorial.readthedocs.io/en/latest/install.html)
 
+## General References
+
 [Towards AI](https://towardsai.net/p/computer-vision/easing-up-the-process-of-tensorflow-2-0-object-detection-api-and-tensorrt)
+
+[Medium](https://towardsdatascience.com/how-to-train-your-own-object-detector-with-tensorflows-object-detector-api-bec72ecfe1d9)
 
 ## Caveats
 
