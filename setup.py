@@ -14,7 +14,7 @@ setup(
         'tensorflow',
         'opencv-python',
         'opencv-contrib-python',
-        'numpy',
+        'numpy==1.19.5',
         'pandas',
         'scikit-learn'
     ]
