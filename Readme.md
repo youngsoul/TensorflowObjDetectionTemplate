@@ -11,6 +11,7 @@ You can find great Tensorflow documentation below.
 
 [TF2 Object Detection API Tutorial](https://tensorflow-object-detection-api-tutorial.readthedocs.io/en/latest/install.html)
 
+[Towards AI](https://towardsai.net/p/computer-vision/easing-up-the-process-of-tensorflow-2-0-object-detection-api-and-tensorrt)
 
 ## Caveats
 
@@ -19,6 +20,78 @@ You can find great Tensorflow documentation below.
 * This repo worked as of, January 23, 2021
 
 * This technology changes so fast, it might not work in the near future.
+
+## Workspace Directory
+
+This directory structure is where most of the image work and specific model training artifacts will be kept.
+
+### exported_models
+
+This directory will hold the model artifacts that are exported after training a model.  Tensorflow provides a script (`exporter_main_v2.py`) to export the checkpoint files into a format that tensorflow can load.  You will be able to find the exported model in: `workspace/exported_models/saved_models/saved_model.pb`
+
+You will also find the saved pipeline configuration file in `workspace/exported_models/pipeline.config`
+
+### images
+
+This directory is meant to contain all of the images for training.  There are a number of sub-directories and the scripts expect certain directories to be available.  These can be changed in the `scripts/model_config.py` but by convention the images sub-directory data structure is assumes.
+
+#### collected-images
+
+This directory contains all of the raw images to train against.
+
+Each subfolder should represent an object detection class.
+
+If you decide to generated augmented images using the `scripts/generate-augmented-images.py` file, it is assumed the files will be stored in the `workspace/images/augmented-images` directory.  They could be placed anywhere.
+
+NOTE: at this point - no pascal-voc.xml file annotations have been made.  The raw images will be broken up into train/test/holdout splits, then annotating the images will be done.
+
+#### augmented-images
+
+This directory contains images originally from the collected-images directory and has an identical directory structure as collected-images but the sub-directories will contain augemented versions of the images.
+
+#### train, test, holdout
+
+After executing the `scripts/train-test-split.py` images will be merged from either the `collected-images` directory or the `augmented-images` directory and merged into the single directory train, test or holdout.
+
+From the train, test, holdout image annotation can be done.  The annotation file is assumed to be in the same directory as the images.
+
+### models
+
+This directory is where the training job will store custom model checkpoints.  The checkpoints are stored in a file driven from the `scripts/model_config.py` file.
+
+```
+# model_config.py
+CUSTOM_MODEL_DIR_NAME = 'custom_model'
+CHECKPOINT_PATH = MODEL_PATH+f'/{CUSTOM_MODEL_DIR_NAME}'
+```
+
+### tf-annotations
+
+This directory will contain the training and testing data in the format that is required by Tensorflow.
+
+The script, `scripts/generate_tfrecord.py` is a Tensorflow provided script to convert pascal-vox.xml annotation files to tensorflow TFRecord format.  When completed the `tf-annotations` directory should contain:
+
+* label_map.pbtxt
+
+* test.record
+
+* train.record
+
+### tf-pre-trained-models
+
+This directory contains one, or the many, Tensorflow Object Detection models as a convenience.  If another model is desired, download that model from the Tensorflow Model Zoo and create a similar directory structure.
+
+
+## Scripts Directory
+
+This directory contains the scripts that will be used to help automate and create workflow around the TFOD Api.
+
+## tf-model-repo
+
+This directory is where the Tensorflow (https://github.com/tensorflow/models.git) repo will be cloned into.
+
+
+
 
 
 ## Steps
