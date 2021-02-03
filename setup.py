@@ -12,8 +12,8 @@ setup(
     description='',
     install_requires = [
         'tensorflow',
-        'python-opencv',
-        'opencv-contrib-python'
+        'opencv-python',
+        'opencv-contrib-python',
         'numpy',
         'pandas',
         'scikit-learn'
