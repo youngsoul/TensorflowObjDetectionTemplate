@@ -129,6 +129,16 @@ to Fully-Qualified Path to this repo root
 
 * Search for TODO and update as appropriate
 
+NOTE: Make sure to look for the definition of the classes you are detecting.
+
+```python
+classes = [
+"Label1",
+"Label2"
+]
+
+```
+
 ### [4] Setup Object Detection
 
 Run the script:
@@ -154,6 +164,15 @@ This will perform a number of steps to setup TFOD models.  See the script for de
      8 create label_map.pbtxt file, if it not not already there
 
      9 update model configuration file
+
+### [4.5] Update model pipeline config file
+
+Update the model pipeline config file based on the model_config.py values
+
+Execute:
+
+`python scripts/update_model_config.py`
+
 
 ### [5] Collect Images to train on
 
