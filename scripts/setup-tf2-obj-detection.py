@@ -5,10 +5,6 @@ import platform
 import logging
 import model_config as mc
 import tarfile
-import tensorflow as tf
-from object_detection.utils import config_util
-from object_detection.protos import pipeline_pb2
-from google.protobuf import text_format
 
 
 logger = logging.getLogger()
@@ -216,4 +212,5 @@ if __name__ == '__main__':
     create_label_map_file()
 
     # 9 update model configuration file
-    update_model_config_file()
+    # call update_model_config.py now
+    # update_model_config_file()
