@@ -2,7 +2,13 @@
 
 This repo contains the structure and scripts to *hopefully* put together a Tensorflow Object Detection Project a little easier.
 
-I built a [Sign Language Detection Project](https://github.com/youngsoul/sign-language-detection-with-tfod2) with this template.
+## Example Usages:
+
+* [Sign Language Detection Project](https://github.com/youngsoul/sign-language-detection-with-tfod2) with this template.
+
+* [Raccoons Dataset](https://github.com/youngsoul/tfod-raccoons)
+
+
 
 
 ## Tensorflow Documentation
