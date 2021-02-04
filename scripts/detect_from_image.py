@@ -17,6 +17,7 @@ import model_config as mc
 from object_detection.utils import ops as utils_ops
 from object_detection.utils import label_map_util
 from object_detection.utils import visualization_utils as vis_util
+import cv2
 
 # patch tf1 into `utils.ops`
 utils_ops.tf = tf.compat.v1
@@ -102,8 +103,10 @@ def run_inference(model, category_index, image_path):
                 instance_masks=output_dict.get('detection_masks_reframed', None),
                 use_normalized_coordinates=True,
                 line_thickness=8)
-            plt.imshow(image_np)
-            plt.show()
+            cv2.imshow("Image", image_np)
+            cv2.waitKey(0)
+            # plt.imshow(image_np)
+            # plt.show()
     else:
         image_np = load_image_into_numpy_array(image_path)
         # Actual detection.
@@ -118,8 +121,10 @@ def run_inference(model, category_index, image_path):
             instance_masks=output_dict.get('detection_masks_reframed', None),
             use_normalized_coordinates=True,
             line_thickness=8)
-        plt.imshow(image_np)
-        plt.show()
+        cv2.imshow("Image", image_np)
+        cv2.waitKey(0)
+        # plt.imshow(image_np)
+        # plt.show()
 
 
 if __name__ == '__main__':
