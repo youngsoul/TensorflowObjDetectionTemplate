@@ -15,7 +15,7 @@ setup(
         'pycocotools==2.0.1'
         'tensorflow==2.4.1',
         'opencv-python==4.5.1.48',
-        'opencv-contrib-python',
+        'opencv-contrib-python==4.5.1.48',
         'pandas==1.2.1',
         'scikit-learn==0.24.1'
     ]
